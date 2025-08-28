@@ -2,6 +2,7 @@ package com.meusprojetos.posto_combustivel.service;
 
 import com.meusprojetos.posto_combustivel.dto.TipoDeCombustivelDTO;
 import com.meusprojetos.posto_combustivel.entity.TipoDeCombustivel;
+import com.meusprojetos.posto_combustivel.exception.RecursoNaoEncontradoException;
 import com.meusprojetos.posto_combustivel.mapper.TipoDeCombustivelMapper;
 import com.meusprojetos.posto_combustivel.repository.TipoDeCombustivelRepository;
 import lombok.RequiredArgsConstructor;
@@ -53,6 +54,6 @@ public class TipoDeCombustivelService {
 
     private TipoDeCombustivel getEntityById(Long id) {
         return tipoDeCombustivelRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Tipo de combustível não encontrado com o id: " + id));
+                .orElseThrow(() -> new RecursoNaoEncontradoException("Tipo de combustível não encontrado com o id: " + id));
     }
 }
