@@ -52,7 +52,7 @@ public class TipoDeCombustivelService {
         tipoDeCombustivelRepository.delete(entity);
     }
 
-    private TipoDeCombustivel getEntityById(Long id) {
+    public TipoDeCombustivel getEntityById(Long id) {
         return tipoDeCombustivelRepository.findById(id)
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Tipo de combustível não encontrado com o id: " + id));
     }
